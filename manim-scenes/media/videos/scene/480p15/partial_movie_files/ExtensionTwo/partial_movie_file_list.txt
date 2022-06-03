@@ -1,6 +1,4 @@
 # This file is used internally by FFMPEG.
-file 'file:/Users/jackbashford/X2/manim-scenes/media/videos/scene/480p15/partial_movie_files/ExtensionTwo/3163782288_2284187582_223132457.mp4'
-file 'file:/Users/jackbashford/X2/manim-scenes/media/videos/scene/480p15/partial_movie_files/ExtensionTwo/2201830969_3503346753_1381629955.mp4'
-file 'file:/Users/jackbashford/X2/manim-scenes/media/videos/scene/480p15/partial_movie_files/ExtensionTwo/2201830969_1316712051_230770454.mp4'
-file 'file:/Users/jackbashford/X2/manim-scenes/media/videos/scene/480p15/partial_movie_files/ExtensionTwo/2201830969_3503346753_4216704227.mp4'
-file 'file:/Users/jackbashford/X2/manim-scenes/media/videos/scene/480p15/partial_movie_files/ExtensionTwo/2201830969_1824780387_4121291445.mp4'
+file 'file:/Users/jackbashford/X2/manim-scenes/media/videos/scene/480p15/partial_movie_files/ExtensionTwo/3163782288_3131197395_223132457.mp4'
+file 'file:/Users/jackbashford/X2/manim-scenes/media/videos/scene/480p15/partial_movie_files/ExtensionTwo/2201830969_117400406_1182687259.mp4'
+file 'file:/Users/jackbashford/X2/manim-scenes/media/videos/scene/480p15/partial_movie_files/ExtensionTwo/2201830969_2329379335_2334220719.mp4'
