@@ -406,6 +406,8 @@ class ExtensionTwo(Scene):
 
 		# Begin proof of prime number reciprocals
 
+		# Proof of Little Theorem
+
 		lines = [
 			MathTex(r"(a+1)^p"),
 			MathTex(r"a^p + \binom{p}{1} a^{p-1} + \binom{p}{2} a^{p-2} + \ldots + \binom{p}{p-1} a^1 + 1", font_size=60).shift(UP),
@@ -472,3 +474,5 @@ class ExtensionTwo(Scene):
 			)
 		)
 		self.wait(defaultTimeout)
+
+		# 
