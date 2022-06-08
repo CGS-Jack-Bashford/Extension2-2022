@@ -1,0 +1,220 @@
+from email.policy import default
+from manim import *
+from manim.utils.color import Colors
+
+class ExtensionTwo(Scene):
+
+	def construct(self):
+
+		MathTex.set_default(font_size=72)
+
+		defaultTimeout = 3
+		play_kw = { "run_time": 1.25, "transform_mismatches": True }
+
+		lines = [
+			MathTex(r"\frac{1}{7}"),
+			MathTex(r"\frac{1}{7}=0.142857142857142857\ldots"),
+			MathTex(r"\frac{1}{7}=0.\overline{142857}"),
+			MathTex(r"142 + 857"),
+			MathTex(r"142\\\ \underline{+857}"),
+			MathTex(r"999", color=BLUE_D).shift(DOWN * 1.65),
+			MathTex(r"\frac{1}{19}", font_size=72),
+			MathTex(r"0.\overline{052631578947368421}"),
+			MathTex(r"52631578\\\ \underline{+947368421}"),
+			MathTex(r"9999999999", color=BLUE_D).shift(DOWN * 1.65),
+		]
+
+		self.play(Write(lines[0]), **play_kw)
+		self.wait(defaultTimeout)
+		self.play(
+			TransformMatchingTex(
+				lines[0], lines[1], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			TransformMatchingTex(
+				lines[1], lines[2], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			TransformMatchingTex(
+				lines[2], lines[3], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			TransformMatchingTex(
+				lines[3], lines[4], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			TransformMatchingTex(
+				lines[4].copy(), lines[5], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			TransformMatchingTex(
+				VGroup(lines[4], lines[5]), lines[0], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			TransformMatchingTex(
+				lines[0], lines[6], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			TransformMatchingTex(
+				lines[6], lines[7], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			TransformMatchingTex(
+				lines[7], lines[8], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			TransformMatchingTex(
+				lines[8].copy(), lines[9], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			Unwrite(
+				VGroup(lines[8], lines[9]), **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+
+		lines = [
+			VGroup(
+				MathTex(r"7"),
+				MathTex(r"19")
+			),
+			MathTex(r"\in\mathbb{P}"),
+			VGroup(
+				MathTex(r"\frac{1}{7}=0.\overline{142857}"),
+				MathTex(r"\frac{1}{19}=0.\overline{052631578947368421}")
+			),
+			VGroup(
+				Tex(r"6 digits"),
+				Tex(r"18 digits")
+			)
+		]
+
+		lines[0].arrange(DOWN, buff=LARGE_BUFF).shift(LEFT * 4)
+		lines[1].shift(LEFT * 2.35)
+		lines[2].arrange(DOWN, buff=2, center=False, aligned_edge=LEFT).shift(LEFT * 3.2, UP * 1.5)
+
+		brace1 = Brace(lines[0], RIGHT, sharpness=1.0)
+
+		self.play(
+			Write(
+				VGroup(lines[0], brace1, lines[1]), **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		brace2 = Brace(lines[2][0], UP, sharpness=1.0)
+		brace3 = Brace(lines[2][1], UP, sharpness=1.0)
+
+		brace2.put_at_tip(lines[3][0])
+		brace3.put_at_tip(lines[3][1])
+
+		self.play(
+			TransformMatchingTex(
+				lines[0][0], lines[2][0], **play_kw
+			),
+			TransformMatchingTex(
+				lines[0][1], lines[2][1], **play_kw
+			),
+			TransformMatchingShapes(
+				VGroup(lines[1], brace1), lines[3], **play_kw
+			),
+			Write(
+				VGroup(brace2, brace3), run_time=play_kw["run_time"]*1.5
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			FadeOut(
+				VGroup(lines[2], lines[3], brace2, brace3), **play_kw, shift=DOWN
+			)
+		)
+
+		self.wait(defaultTimeout)
+		lines = VGroup(
+			Tex("Etienne Midy (1775-1846)").shift(UP * 3),
+			MathTex(r"p \in \mathbb{P}"),
+			MathTex(r"p \notin {2,5}"),
+			MathTex(r"\frac{1}{p} = 0.\overline{a_{1}a_{2}a_{3}\ldots a_{2k}}"),
+			MathTex(r"a_{1}a_{2}a_{3}a_{4}\ldots a_{k}\\ \underline{+a_{k+1}a_{k+2}\ldots a_{2k}}"),
+			MathTex(r"m(10^k - 1)", color=BLUE_D).shift(DOWN * 1.8),
+			MathTex(r"m(999\ldots 999), m \in \mathbb{N}", color=BLUE_D).shift(DOWN * 1.8),
+			MathTex(r"142\\\ \underline{+857}").shift(LEFT * 4),
+			MathTex(r"999", color=BLUE_D).shift(DOWN * 1.65, LEFT * 4),
+			MathTex(r"52631578\\\ \underline{+947368421}").shift(RIGHT * 3),
+			MathTex(r"9999999999", color=BLUE_D).shift(DOWN * 1.65, RIGHT * 3)
+		)
+
+		self.play(
+			Write(
+				lines[0], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			Write(
+				lines[1], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			TransformMatchingTex(
+				lines[1], lines[2], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			TransformMatchingTex(
+				lines[2], lines[3], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			TransformMatchingTex(
+				lines[3], lines[4], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			TransformMatchingTex(
+				lines[4].copy(), lines[5], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			TransformMatchingTex(
+				lines[5], lines[6], **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			TransformMatchingTex(
+				VGroup(lines[6], lines[4]), VGroup(lines[7], lines[8], lines[9], lines[10]), **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		self.play(
+			Unwrite(
+				VGroup(lines[0], lines[7:11]), **play_kw
+			)
+		)
+		self.wait(defaultTimeout)
+		
