@@ -2,6 +2,8 @@ from email.policy import default
 from manim import *
 from manim.utils.color import Colors
 
+# Some information about this scene - it provides a proof of Midy's original and extended theorems using modular arithmetic and basic congruence principles (i.e. from a beginner standpoint for anyone with a very basic understanding of the modulus operator)
+
 class ExtensionTwo(Scene):
 
 	def construct(self):
